@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { LocationPage } from '../pages/location/location';
 import { AuthorshipPage } from '../pages/authorship/authorship';
 import { MarkLocationPage } from '../pages/mark-location/mark-location';
+import { ContentPage } from '../pages/content/content';
+import { ActivityPage } from '../pages/activity/activity';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MarkLocationPage } from '../pages/mark-location/mark-location';
     HomePage,
     LocationPage,
     AuthorshipPage,
-    MarkLocationPage
+    MarkLocationPage,
+    ContentPage,
+    ActivityPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { MarkLocationPage } from '../pages/mark-location/mark-location';
     HomePage,
     LocationPage,
     AuthorshipPage,
-    MarkLocationPage
+    MarkLocationPage,
+    ContentPage,
+    ActivityPage
   ],
   providers: [
     StatusBar,

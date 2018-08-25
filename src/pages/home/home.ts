@@ -14,9 +14,9 @@ export class HomePage {
   }
 
   navegar(pagina) {
-    if (pagina == 'localizacao') {
+    if (pagina === 'localizacao') {
       this.navCtrl.push(LocationPage);
-    } else if (pagina == 'autoria') {
+    } else if (pagina === 'autoria') {
       this.navCtrl.push(AuthorshipPage);
     }
   }
