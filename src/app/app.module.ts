@@ -12,6 +12,8 @@ import { MarkLocationPage } from '../pages/mark-location/mark-location';
 import { ContentPage } from '../pages/content/content';
 import { ActivityPage } from '../pages/activity/activity';
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,6 +40,7 @@ import { ActivityPage } from '../pages/activity/activity';
   ],
   providers: [
     StatusBar,
+    Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

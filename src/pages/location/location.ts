@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MarkLocationPage } from '../mark-location/mark-location';
+import { Geolocation } from '@ionic-native/geolocation';
 
 /**
  * Generated class for the LocationPage page.
@@ -16,7 +17,10 @@ import { MarkLocationPage } from '../mark-location/mark-location';
 })
 export class LocationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
@@ -26,4 +30,14 @@ export class LocationPage {
   form() {
     this.navCtrl.push(MarkLocationPage);
   }
+
+  captureLocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      console.log(resp.coords.latitude);
+      console.log(resp.coords.longitude);
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+
 }
