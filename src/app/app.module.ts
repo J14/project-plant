@@ -12,6 +12,11 @@ import { MarkLocationPage } from '../pages/mark-location/mark-location';
 import { ContentPage } from '../pages/content/content';
 import { ActivityPage } from '../pages/activity/activity';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { IonicStorageModule } from '@ionic/storage';
+import { ContentsProvider } from '../providers/contents/contents';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +29,9 @@ import { ActivityPage } from '../pages/activity/activity';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,8 +45,10 @@ import { ActivityPage } from '../pages/activity/activity';
   ],
   providers: [
     StatusBar,
+    Geolocation,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ContentsProvider
   ]
 })
 export class AppModule {}
