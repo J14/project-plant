@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
-/**
- * Generated class for the MarkLocationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ContentsProvider } from '../../providers/contents/contents';
 
 @IonicPage()
 @Component({
@@ -16,13 +10,22 @@ import { Storage } from '@ionic/storage';
 })
 export class MarkLocationPage {
 
-  name: string;
-  description: string;
+  public name: string;
+  public description: string;
+  public latitude: number;
+  public longitude: number;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private storage: Storage) {
+    private storage: Storage,
+    private contents: ContentsProvider) {
+      this.storage.get('latitude').then((lat) => {
+        this.latitude = lat;
+      });
+      this.storage.get('longitude').then((long) => {
+        this.longitude = long;
+      });
   }
 
   ionViewDidLoad() {
@@ -30,14 +33,12 @@ export class MarkLocationPage {
   }
 
   form() {
-    console.log(this.name);
-    console.log(this.description);
-    this.storage.get('latitude').then((lat) => {
-      console.log(lat);
-    });
-    this.storage.get('longitude').then((long) => {
-      console.log(long);
-    });
+    let content = {
+      'title': this.name,
+      'description': this.description
+    }
+
+    this.contents.create(content);
   }
 
 }
