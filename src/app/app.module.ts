@@ -16,6 +16,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { IonicStorageModule } from '@ionic/storage';
 import { ContentsProvider } from '../providers/contents/contents';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationProvider } from '../providers/location/location';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContentsProvider
+    ContentsProvider,
+    LocationProvider
   ]
 })
 export class AppModule {}
