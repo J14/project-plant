@@ -14,7 +14,7 @@ export class ContentsProvider {
     })
     let path = '/content';
     this.http.post(path, content, {headers}).subscribe((data) => {
-      console.log(data.data);
+      console.log(data);
     });
   }
 
