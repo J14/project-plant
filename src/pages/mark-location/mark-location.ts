@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { ContentsProvider } from '../../providers/contents/contents';
+import { LocationProvider } from '../../providers/location/location';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,7 @@ export class MarkLocationPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private storage: Storage,
-    private contents: ContentsProvider) {
+    private location: LocationProvider) {
       this.storage.get('latitude').then((lat) => {
         this.latitude = lat;
       });
@@ -34,11 +34,12 @@ export class MarkLocationPage {
 
   form() {
     let content = {
-      'title': this.name,
-      'description': this.description
+      'name': this.name,
+      'description': this.description,
+      'coord': [this.longitude, this.latitude]
     }
 
-    this.contents.create(content);
+    this.location.create(content);
   }
 
 }
