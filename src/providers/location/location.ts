@@ -10,6 +10,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LocationProvider {
 
+  private path = '/location';
+
   constructor(public http: HttpClient) {
     console.log('Hello LocationProvider Provider');
   }
@@ -19,9 +21,13 @@ export class LocationProvider {
       'Content-type': 'application/json'
     });
     
-    let path = '/location';
-    this.http.post(path, location, {headers}).subscribe((data) => {
+    
+    this.http.post(this.path, location, {headers}).subscribe((data) => {
       console.log(data);
     });
+  }
+
+  all() {
+    return this.http.get(this.path);
   }
 }
