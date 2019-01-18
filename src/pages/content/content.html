@@ -19,7 +19,7 @@
       <ion-segment-button value="description">
         Descrição
       </ion-segment-button>
-      <ion-segment-button value="right">
+      <ion-segment-button value="correct">
         Certo
       </ion-segment-button>
       <ion-segment-button value="wrong">
@@ -31,22 +31,22 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'description'">
       <ion-item>
-        <ion-textarea placeholder="Descrição"></ion-textarea>>
+        <ion-textarea placeholder="Descrição" [(ngModel)]="description"></ion-textarea>>
       </ion-item>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'right'">
+    <ion-list *ngSwitchCase="'correct'">
       <ion-item>
-        <ion-textarea placeholder="Certo"></ion-textarea>
+        <ion-textarea placeholder="Certo" [(ngModel)]="correct"></ion-textarea>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'wrong'">
       <ion-item>
-        <ion-textarea placeholder="Errado"></ion-textarea>
+        <ion-textarea placeholder="Errado" [(ngModel)]="wrong"></ion-textarea>
       </ion-item>
     </ion-list>
   </div>
 
-  <button ion-button full>Confirmar</button>
+  <button ion-button full (click)="form()">Confirmar</button>
 </ion-content>

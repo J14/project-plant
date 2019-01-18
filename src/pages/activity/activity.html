@@ -18,37 +18,35 @@
   <ion-list>
 
     <ion-item>
-      <ion-input type="text" placeholder="Name"></ion-input>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="title">
+      </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label stacked>Descrição</ion-label>
-      <ion-textarea></ion-textarea>
+      <ion-textarea [(ngModel)]="description"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label>Conteúdo</ion-label>
       <ion-select [(ngModel)]="content">
-        <ion-option value="ctd1">Conteudo 1</ion-option>
-        <ion-option value="ctd2">Conteudo 2</ion-option>
-        <ion-option value="ctd3">Conteudo 3</ion-option>
+        <ion-option *ngFor="let cont of contents" [value]="cont._id">
+          {{ cont.description }}
+        </ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>Atividade</ion-label>
-      <ion-select [(ngModel)]="activity">
-        <ion-option value="act1">Atividade 1</ion-option>
-        <ion-option value="act2">Atividade 2</ion-option>
-        <ion-option value="act3">Atividade 3</ion-option>
-        <ion-option value="act4">Atividade 4</ion-option>
-        <ion-option value="act5">Atividade 5</ion-option>
-        <ion-option value="act6">Atividade 6</ion-option>
+      <ion-label>Localização</ion-label>
+      <ion-select [(ngModel)]="location">
+        <ion-option *ngFor="let loc of locations" [value]="loc._id">
+          {{ loc.name }}
+        </ion-option>
       </ion-select>
     </ion-item>
 
   </ion-list>
 
-  <button ion-button full>Confirmar</button>
+  <button ion-button full (click)="form()">Confirmar</button>
 
 </ion-content>

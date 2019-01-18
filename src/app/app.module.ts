@@ -17,6 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ContentsProvider } from '../providers/contents/contents';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationProvider } from '../providers/location/location';
+import { ActivityProvider } from '../providers/activity/activity';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LocationProvider } from '../providers/location/location';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ContentsProvider,
-    LocationProvider
+    LocationProvider,
+    ActivityProvider
   ]
 })
 export class AppModule {}

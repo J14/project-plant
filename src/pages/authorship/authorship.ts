@@ -20,10 +20,6 @@ export class AuthorshipPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AuthorshipPage');
-  }
-
   navegar(pagina) {
     if (pagina === 'conteudo') {
       this.navCtrl.push(ContentPage);

@@ -4,7 +4,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ContentsProvider {
 
-    constructor(public http: HttpClient) {
+  private path = '/content';
+
+  constructor(public http: HttpClient) {
     console.log('Hello ContentsProvider Provider');
   }
 
@@ -12,10 +14,14 @@ export class ContentsProvider {
     let headers = new HttpHeaders({
       'Content-type': 'application/json'
     })
-    let path = '/content';
-    this.http.post(path, content, {headers}).subscribe((data) => {
+    
+    this.http.post(this.path, content, {headers}).subscribe((data) => {
       console.log(data);
     });
+  }
+
+  all() {
+    return this.http.get(this.path);
   }
 
 }

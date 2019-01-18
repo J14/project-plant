@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContentsProvider } from '../../providers/contents/contents';
 
 /**
  * Generated class for the ContentPage page.
@@ -16,12 +17,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ContentPage {
 
   pet = 'description';
+  public description: string;
+  public correct: string;
+  public wrong: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private content: ContentsProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ContentPage');
+  form() {
+    let content = {
+      'description': this.description,
+      'correct': this.correct,
+      'wrong': this.wrong
+    }
+
+    this.content.create(content);
   }
 
 }
