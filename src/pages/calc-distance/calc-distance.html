@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>calc-distance</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Atividade</ion-label>
+      <ion-select [(ngModel)]="activity">
+        <ion-option *ngFor="let act of activities" [value]="act">
+          {{ act.title }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button (click)="verificarProximidade()">
+    Verificar Proximidade
+  </button>
+
+  <ion-label>{{ status }}</ion-label>
+  <ion-label>{{ content }}</ion-label>
+
+</ion-content>

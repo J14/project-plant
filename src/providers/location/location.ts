@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class LocationProvider {
 
   private path = '/location';
+  private pathCalculateDistance = "/location/distance";
 
   constructor(public http: HttpClient) {
     console.log('Hello LocationProvider Provider');
@@ -29,5 +30,13 @@ export class LocationProvider {
 
   all() {
     return this.http.get(this.path);
+  }
+
+  calculateDistance(body) {
+    let headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    })
+
+    return this.http.post(this.pathCalculateDistance, body, {headers});
   }
 }
