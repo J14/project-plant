@@ -19,4 +19,8 @@ export class ActivityProvider {
     })
   }
 
+  all() {
+    return this.http.get(this.path);
+  }
+
 }
