@@ -12,11 +12,19 @@ export class ActivityProvider {
   }
 
   create(content) {
-    this.http.post(this.path, content).subscribe((data) => {
+    let headers = new HttpHeaders({
+      'Content-type': 'application/json'
+    })
+
+    this.http.post(this.path, content, {headers}).subscribe((data) => {
       console.log(data);
     }, (err) => {
       console.log(err);
     })
+  }
+
+  all() {
+    return this.http.get(this.path);
   }
 
 }

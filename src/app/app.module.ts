@@ -18,6 +18,7 @@ import { ContentsProvider } from '../providers/contents/contents';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationProvider } from '../providers/location/location';
 import { ActivityProvider } from '../providers/activity/activity';
+import { CalcDistancePage } from '../pages/calc-distance/calc-distance';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ActivityProvider } from '../providers/activity/activity';
     AuthorshipPage,
     MarkLocationPage,
     ContentPage,
-    ActivityPage
+    ActivityPage,
+    CalcDistancePage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { ActivityProvider } from '../providers/activity/activity';
     AuthorshipPage,
     MarkLocationPage,
     ContentPage,
-    ActivityPage
+    ActivityPage,
+    CalcDistancePage
   ],
   providers: [
     StatusBar,

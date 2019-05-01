@@ -22,6 +22,7 @@ export class ActivityPage {
   public description: string;
   public content: string;
   public location: string;
+  public threshold: number;
   public contents;
   public locations;
 
@@ -32,10 +33,10 @@ export class ActivityPage {
     private contentProvider: ContentsProvider,
     private activityProvider: ActivityProvider) {
       this.locationProvider.all().subscribe((data) => {
-        this.locations = data.data;
+        this.locations = (data as any).data;
       });
       this.contentProvider.all().subscribe((data) => {
-        this.contents = data.data;
+        this.contents = (data as any).data;
       });
   }
 
@@ -44,7 +45,8 @@ export class ActivityPage {
       'title': this.title,
       'description': this.description,
       'content': this.content,
-      'location': this.location
+      'location': this.location,
+      'threshold': this.threshold
     }
 
     this.activityProvider.create(content);
