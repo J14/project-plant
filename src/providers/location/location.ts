@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LocationProvider {
 
+  private url = "https://pibic-project.herokuapp.com";
   private path = '/location';
   private pathCalculateDistance = "/location/distance";
 
@@ -23,13 +24,13 @@ export class LocationProvider {
     });
     
     
-    this.http.post(this.path, location, {headers}).subscribe((data) => {
+    this.http.post(this.url + this.path, location, {headers}).subscribe((data) => {
       console.log(data);
     });
   }
 
   all() {
-    return this.http.get(this.path);
+    return this.http.get(this.url + this.path);
   }
 
   calculateDistance(body) {
@@ -37,6 +38,6 @@ export class LocationProvider {
       'Content-type': 'application/json'
     })
 
-    return this.http.post(this.pathCalculateDistance, body, {headers});
+    return this.http.post(this.url + this.pathCalculateDistance, body, {headers});
   }
 }

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ContentsProvider {
 
+  private url = "https://pibic-project.herokuapp.com";
   private path = '/content';
 
   constructor(public http: HttpClient) {
@@ -15,13 +16,13 @@ export class ContentsProvider {
       'Content-type': 'application/json'
     })
     
-    this.http.post(this.path, content, {headers}).subscribe((data) => {
+    this.http.post(this.url + this.path, content, {headers}).subscribe((data) => {
       console.log(data);
     });
   }
 
   all() {
-    return this.http.get(this.path);
+    return this.http.get(this.url + this.path);
   }
 
 }
